@@ -19,17 +19,13 @@ def cesar(texto, clave, tarea):
 def vigenere(texto, clave, tarea): 
     respuesta=''
     cnt=0
-    for letra in texto: 
+       
+    if letra in alfabeto:
+        respuesta+=cesar(letra, clave[cnt],tarea)
+        cnt+=1
         
-        if letra in alfabeto:
-            respuesta+=cesar(letra, clave[cnt],tarea)
-            cnt+=1
-                   
-        else:
-            raise Exception('caracter no en el alfabeto')
-        
-        if cnt>=len(clave):
-            cnt=0
+    if cnt>=len(clave):
+        cnt=0
     return(respuesta)
     
 if __name__=='__main__':
