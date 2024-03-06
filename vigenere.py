@@ -6,27 +6,26 @@ def cesar(texto, clave, tarea):
     respuesta=''
     pos_clave=alfabeto.index(clave)
     for letra in texto:
-        if tarea==0:
-            posicion=(alfabeto.index(letra)+pos_clave)%len(alfabeto)
+        if letra in alfabaeto:
+            if tarea==0:
+                posicion=(alfabeto.index(letra)+pos_clave)%len(alfabeto)
+            else:
+                possicion=(alfabeto.index(letra)-pos_clave)%len(alfabeto)
+            respuesta+=alfabeto[posicion]
         else:
-            possicion=(alfabeto.index(letra)-pos_clave)%len(alfabeto)
-        respuesta+=alfabeto[posicion]
+            raise Exception(f'Hay un caracter que no esta disponible en el alfabeto en la posicion{texto.index(letra)}')
     return respuesta
 
 def vigenere(texto, clave, tarea): 
     respuesta=''
     cnt=0
-    for letra in texto: 
+       
+    if letra in alfabeto:
+        respuesta+=cesar(letra, clave[cnt],tarea)
+        cnt+=1
         
-        if letra in alfabeto:
-            respuesta+=cesar(letra, clave[cnt],tarea)
-            cnt+=1
-                   
-        else:
-            raise Exception('caracter no en el alfabeto')
-        
-        if cnt>=len(clave):
-            cnt=0
+    if cnt>=len(clave):
+        cnt=0
     return(respuesta)
     
 if __name__=='__main__':
