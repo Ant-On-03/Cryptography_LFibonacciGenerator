@@ -1,5 +1,5 @@
 ### LAGGED FIBBONACCI GENERATOR
-En este projecto el objetivo es implementar una serie de algoritmos de encriptación en diferentes lenguajes.
+En este proyecto el objetivo es implementar una serie de algoritmos de encriptación en diferentes lenguajes.
 Usé Julia para implementar el generador de números pseudoaleatorios recomendado por George Marsaglia en 1987 siguiendo sus recomendaciones en "TOWARD A UNIVERSAL RANDOM NUMBER OPERATOR".
 
 https://web.archive.org/web/20100610050921/http://stat.fsu.edu/techreports/M766.pdf
