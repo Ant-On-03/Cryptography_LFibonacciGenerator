@@ -5,8 +5,18 @@
 
 ## A SOLUCIONAR PREGUNTAR PROFE: POR QUÉ AÚN HACIENDO EL MOD EN OPERATION EL RESULTADO SE SALE DEL RANGO.
 
-
-
+## EL GENERADOR A CONTINUACIÓN SE DIVIDE EN DOS DISTINTOS:
+# uno primero que inicializa un vector a partir de Key (este es Lineal Congruential Generator)
+# el segundo cuya llave es el vector determinado por el anterior. Este emplea Lagged Fibbonacci 
+# con una tupla de valores r y s conocidos por su robustez. Este obtiene el resultado final.
+#
+# Idealmente el primero sería más potente que el segundo, ya que al tener que generar tan solo 
+# unos pocos valores (tantos como el valor de s).
+# Y debería de cumplir ciertas condiciones para asegurar que el vector inicializador sea adecuado
+# para fibbonacci. 
+#
+#
+#
 
 # ----------------------------------------------------------------------------------------
 # ---------------------------INICIALIZAR EL VECTOR PARA FIBONACCI-------------------------
@@ -52,12 +62,18 @@ function fibon_next(sucesion::Vector{Int64}, r=7, s=10, mod=2^31-1)
     deleteat!(sucesion,1)
 end
 
-
 # ----------------------------------------------------------------------------------------
 # ----------------------------------LAGGED FIBBONACCI-------------------------------------
 # ----------------------------------------------------------------------------------------
 
 function ALFG(NumRange::Vector{Int64}, key::Int64, iterations=9999, mod=2^31-1::Int64)
+    """
+    Fibonacci Random Number Generator
+    ALFG(NumRange::Vector{Int64}, key::Int64, iterations=9999, mod=2^31-1::Int64)
+        
+    TBW
+    """
+
     # s TIENE que ser mayor que r
     r = 128
     s = 159
@@ -92,9 +108,7 @@ function FreqAnalizer( n_muestras)
 end
 
 
-FreqAnalizer(1000)
-
-
+# FreqAnalizer(100)
 
 
 # ----------------------------------------------------------------------------------------
@@ -102,8 +116,6 @@ FreqAnalizer(1000)
 # ----------------------------------------------------------------------------------------
 
 function monoalfabeto(key)
-    
-
 
 end
 
@@ -111,6 +123,15 @@ end
 
 
 
+# Este generador no es típicamente usado ya que es muy susceptible a los vectores iniciales
+# para ser robusto. Depende en gran medida de un buen generador pseudoaleatorio para este
+# vector inicial, que ha de tener s elementos. Por ello george marsaglia recomendaba usar un
+# algoritmo más potente aunque lento para generar estos primeros s elementos, que son llave
+# del de Fibonacci, ya que este con unas buenas condiciones sí rinde muy bien y bastante rápido.
+# Nosotros no implementamos un algoritmo fuerte ni mucho menos para generar estos primeros
+# s elementos, ya que nuestro esfuerzo fue puesto en realizar el algoritmo de Fibonacci de forma
+# correcta. El que empleamos para esto es un simple Lineal Congruential Generator con un ciclo
+# grande (ya que copiamos los valores de MMMMMMM).
 
 
 # if addition
