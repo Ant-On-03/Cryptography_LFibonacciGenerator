@@ -11,7 +11,8 @@ El generador en sí puede ser usado con variadas operaciones,![image](https://gi
 Este generador de números pseudoaleatorios parte de tomar un vector inicial de elementos I tal que
 ![image](https://github.com/Ant-On-03/Cryptography_LFibonacciGenerator/assets/132560145/7906e9ff-a1c7-4a5b-8e34-83e8c358b41c)
 
-La operación implementada es la siguiente.
+La operación que implementé es la siguiente.
+
 ![image](https://github.com/Ant-On-03/Cryptography_LFibonacciGenerator/assets/132560145/c00c6b34-a8e8-4372-b521-3dbc6d33c02e)
 
 
