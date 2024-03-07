@@ -2,6 +2,8 @@
 
 ## ALGORITMO SUSTITUCIÓN MONOALFABETO.
 
+from julia import Main
+Main.include("Lagged_Fibbonacci_Generator.jl")
 
 
 def list_take():
