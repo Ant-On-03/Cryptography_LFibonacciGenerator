@@ -1,8 +1,5 @@
 
 
-
-
-
 ## A SOLUCIONAR PREGUNTAR PROFE: POR QUÉ AÚN HACIENDO EL MOD EN OPERATION EL RESULTADO SE SALE DEL RANGO.
 
 ## EL GENERADOR A CONTINUACIÓN SE DIVIDE EN DOS DISTINTOS:
@@ -47,7 +44,7 @@ end
 # ----------------------------------------------------------------------------------------
 
 function operation(x::Int64,y::Int64, mod=2^31-1)
-    # Definimos la operación acorde con la recomendada por MMMMM en MMMMM
+    # Definimos la operación acorde con la recomendada por  George Marsaglia en "TOWARD A UNIVERSAL RANDOM NUMBER OPERATOR"
     if x >= y
         return x-y % mod
     else
@@ -65,25 +62,31 @@ end
 # ----------------------------------------------------------------------------------------
 # ----------------------------------LAGGED FIBBONACCI-------------------------------------
 # ----------------------------------------------------------------------------------------
-
-function ALFG(NumRange::Vector{Int64}, key::Int64, iterations=9999, mod=2^31-1::Int64)
-    """
+"""
     Fibonacci Random Number Generator
     ALFG(NumRange::Vector{Int64}, key::Int64, iterations=9999, mod=2^31-1::Int64)
         
     TBW
-    """
-
-    # s TIENE que ser mayor que r
-    r = 128
-    s = 159
-
-    sucesion = inicialize(key, s)
+"""
+function ALFG(sucesion::Vector{Int64}, key::Int64, iterations=9999::Int64, r=128::Int64, s=159::Int64, mod=2^31-1::Int64)
+    
     for iteration in 1:iterations
         fibon_next( sucesion, r, s) 
     end
-
     return abs(sucesion[end])
+end
+
+
+
+function pseudoaleatorio(key::Int64, len::Int64)
+    # s TIENE que ser mayor que r
+    iterations = 90384#5
+    r = 128
+    s = 159
+
+    sucesion = inicialize(key^len, s)
+    # println(ALFG(sucesion, key, iterations) % len +1)
+    return ALFG(sucesion, key, iterations) % len +1
 end
 
 
@@ -92,35 +95,44 @@ end
 # ----------------------------------------------------------------------------------------
 # Se busca la mayor uniformidad posible.
 
-function FreqAnalizer( n_muestras)
+"""
+    FreqAnalizer( n_muestras::Int64, range=10::Int64)
+
+    # Arguments
+
+    'n_muestras' : Input the number of samples 
+    'range' : range of the output value of the pseudorandom function.
+
+    # Returns
+
+    This will return the total number of times each number is picked, and its porcentage.
+
+    TBW
+"""
+function FreqAnalizer( n_muestras::Int64, range=10::Int64)
+    
     frecuencias = Int[]
+    FREQS = Int[]
+    PERCENT_FREQ = Float64[]
+
     for number in 1:n_muestras
-        push!(frecuencias, ALFG([1,2],number))
+        push!(frecuencias, pseudoaleatorio(number, range))
     end
 
-    FREQS = Int[]
     for number in minimum(frecuencias):maximum(frecuencias)
         push!(FREQS, count(x -> x == number, frecuencias) )
     end
 
-    println("FREQS", FREQS)
-    return FREQS
+    total = sum(FREQS) 
+    for FREQ in FREQS
+        push!( PERCENT_FREQ, FREQ/total )
+    end
+
+    return FREQS, PERCENT_FREQ
 end
 
 
-# FreqAnalizer(100)
-
-
-# ----------------------------------------------------------------------------------------
-# ------------------------------------------- CÉSAR --------------------------------------
-# ----------------------------------------------------------------------------------------
-
-function monoalfabeto(key)
-
-end
-
-
-
+ # println(FreqAnalizer( 10000, 7))
 
 
 # Este generador no es típicamente usado ya que es muy susceptible a los vectores iniciales
@@ -162,11 +174,3 @@ end
 
 # con lo cual el ciclo real es alguna permutación de todos los ciclos que encontramos.
 # difícil de calcular pero podemos inferir que bastante grande.
-
-
-
-
-
-
-
-

@@ -2,6 +2,7 @@
 
 ## ALGORITMO SUSTITUCIÓN MONOALFABETO.
 
+import julia as julo
 #from julia import Main
 #Main.include("script.jl")
 #Main.testFunc01(x, y)
