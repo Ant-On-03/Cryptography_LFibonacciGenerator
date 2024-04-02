@@ -15,5 +15,11 @@ La operación que implementé es la siguiente.
 
 ![image](https://github.com/Ant-On-03/Cryptography_LFibonacciGenerator/assets/132560145/c00c6b34-a8e8-4372-b521-3dbc6d33c02e)
 
+Para emplear este algoritmo desde la terminal, es necesario tener instalado julia y escribir el comando
+"julia Lagged_Fibbonacci_Generator --help"
+y este nos explicará
+"julia Lagged_Fibbonacci_Generator -k 999 -l 9"
+Esta empleará de llave 999 y generará un número entre 0 y 9
+El resultado es el número generado.
 
 
