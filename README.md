@@ -20,6 +20,6 @@ Para emplear este algoritmo desde la terminal, es necesario tener instalado juli
 *"julia Lagged_Fibbonacci_Generator -k 999 -l 9"* <br>
 <br>
 Esta empleará de llave 999 y generará un número entre 1 y 9.
-El resultado es el número generado.
+El resultado es el número generado, que se mostrará por terminal.
 
 
