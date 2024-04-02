@@ -4,7 +4,7 @@ Usé Julia para implementar el generador de números pseudoaleatorios recomendad
 
 https://web.archive.org/web/20100610050921/http://stat.fsu.edu/techreports/M766.pdf
 
-El generador en sí puede ser usado con variadas operaciones,![image](https://github.com/Ant-On-03/Cryptography_LFibonacciGenerator/assets/132560145/fc695314-ff7b-4f74-9085-29a64e1f31fd)
+El generador en sí puede ser usado con varias operaciones,![image](https://github.com/Ant-On-03/Cryptography_LFibonacciGenerator/assets/132560145/fc695314-ff7b-4f74-9085-29a64e1f31fd)
  desde aditivas, multiplicativas a XOR (two-tap).  
 ![image](https://github.com/Ant-On-03/Cryptography_LFibonacciGenerator/assets/132560145/ec9e5e66-a074-4978-95d9-6d69812793e2)
 
