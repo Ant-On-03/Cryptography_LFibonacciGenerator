@@ -17,7 +17,7 @@ La operación que implementé es la siguiente.
 
 Para emplear este algoritmo desde la terminal, es necesario tener instalado julia y escribir el comando <br>
 <br>
-"julia Lagged_Fibbonacci_Generator -k 999 -l 9" <br>
+*"julia Lagged_Fibbonacci_Generator -k 999 -l 9"* <br>
 <br>
 Esta empleará de llave 999 y generará un número entre 0 y 9
 El resultado es el número generado.
